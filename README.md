@@ -23,7 +23,7 @@ import(
     "fmt"
     "time"
     
-    "github.com/hailocab/gocassa"
+    "github.com/megamsys/gocassa"
 )
 
 type Sale struct {
