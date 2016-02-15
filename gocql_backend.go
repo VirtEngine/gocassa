@@ -68,6 +68,7 @@ func GoCQLSessionToQueryExecutor(sess *gocql.Session) QueryExecutor {
 func newGoCQLBackend(nodeIps []string, username, password string) (QueryExecutor, error) {
 	cluster := gocql.NewCluster(nodeIps...)
 	cluster.Consistency = gocql.One
+	cluster.ProtoVersion = 3
 	cluster.Authenticator = gocql.PasswordAuthenticator{
 		Username: username,
 		Password: password,
