@@ -48,7 +48,6 @@ func main() {
 	if err := salesTable.Read("seller-1", "sale-1", &result).Run(); err != nil {
 		panic(err)
 	}
-	fmt.Println(result)
 
 	// As an upside, now we can actually list rows based on a criteria. Let's insert an other row
 	// before Listing - it is no fun to have a list with one element only ;)
@@ -67,7 +66,6 @@ func main() {
 	if err := salesTable.List("seller-1", nil, 0, &resultList).Run(); err != nil {
 		panic(err)
 	}
-	fmt.Println("Our result list now has 2 rows. Amazing!!!", resultList)
 
 	// To Update we also need to know both SellerId and SaleId:
 	fmt.Printf("Updating sales with SellerId %v and Id %v \"sale-1\" with Price = 110\n", "seller-1", "sale-1")
@@ -78,12 +76,10 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println("Reading sales record again: ")
 	// Read the row again:
 	if err := salesTable.Read("seller-1", "sale-1", &result).Run(); err != nil {
 		panic(err)
 	}
-	fmt.Println(result)
 
 	// You might also wonder how paging works.
 	// With cassandra, the idiomatic way is not page number based paging, but
@@ -105,18 +101,15 @@ func main() {
 		}
 	}
 
-	fmt.Println("First 10 sales of seller-1:")
 	err = salesTable.List("seller-1", nil, 11, &resultList).Run()
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(resultList)
+	
 	if len(resultList) > 10 {
 		err = salesTable.List("seller-1", resultList[10].Id, 11, &resultList).Run()
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println("Second 10 sales of seller-1:")
-		fmt.Println(resultList)
 	}
 }

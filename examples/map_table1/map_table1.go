@@ -42,5 +42,4 @@ func main() {
 	if err := salesTable.Read("sale-1", &result).Run(); err != nil {
 		panic(err)
 	}
-	fmt.Println(result)
 }
