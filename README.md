@@ -4,7 +4,7 @@ gocassa
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg "GoDoc")](http://godoc.org/github.com/hailocab/gocassa) 
 [![Build Status](https://img.shields.io/travis/hailocab/gocassa/master.svg "Build Status")](https://travis-ci.org/hailocab/gocassa) 
 
-Gocassa is a high-level library on top of [gocql](https://github.com/gocql/gocql).
+Gocassa is a high-level library on top of [gocql](https://github.com/megamsys/gocql).
 
 Current version: v1.2.0
 

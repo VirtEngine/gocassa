@@ -3,7 +3,7 @@ package gocassa
 import (
 	"errors"
 
-	"github.com/gocql/gocql"
+	"github.com/megamsys/gocql"
 )
 
 type goCQLBackend struct {
@@ -12,10 +12,11 @@ type goCQLBackend struct {
 
 func (cb goCQLBackend) QueryWithOptions(opts Options, stmt string, vals ...interface{}) ([]map[string]interface{}, error) {
 	qu := cb.session.Query(stmt, vals...)
+	qun := qu.NoSkipMetadata()
 	if opts.Consistency != nil {
-		qu = qu.Consistency(*opts.Consistency)
+		qun = qun.Consistency(*opts.Consistency)
 	}
-	iter := qu.Iter()
+	iter := qun.Iter()
 	ret := []map[string]interface{}{}
 	m := &map[string]interface{}{}
 	for iter.MapScan(*m) {

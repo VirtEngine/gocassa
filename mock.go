@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/gocql/gocql"
+	"github.com/megamsys/gocql"
 	"github.com/google/btree"
 )
 
