@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gocql/gocql"
+	"github.com/megamsys/gocql"
 )
 
 type Customer struct {

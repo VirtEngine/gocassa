@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gocql/gocql"
+	"github.com/megamsys/gocql"
 )
 
 func createIf(cs TableChanger, tes *testing.T) {

@@ -3,7 +3,7 @@ package gocassa
 import (
 	"time"
 
-	"github.com/gocql/gocql"
+	"github.com/megamsys/gocql"
 )
 
 type ColumnDirection bool
