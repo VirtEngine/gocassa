@@ -42,6 +42,8 @@ func (m mockOp) Run() error {
 	return nil
 }
 
+
+
 func (m mockOp) WithOptions(opt Options) Op {
 	return mockOp{
 		options: opt,
@@ -72,6 +74,10 @@ func (ks *mockKeySpace) NewTable(name string, entity interface{}, fields map[str
 		keys:   keys,
 		rows:   map[rowKey]*btree.BTree{},
 	}
+}
+
+func (ks *mockKeySpace) Close() {
+	ks.k.Close()
 }
 
 func NewMockKeySpace() KeySpace {

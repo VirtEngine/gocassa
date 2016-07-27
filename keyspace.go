@@ -54,6 +54,12 @@ func (k *k) NewTable(name string, entity interface{}, fields map[string]interfac
 	}
 }
 
+func (k *k) Close() {
+	k.qe.Close()
+}
+
+
+
 func (k *k) MapTable(name, id string, row interface{}) MapTable {
 	m, ok := toMap(row)
 	if !ok {
